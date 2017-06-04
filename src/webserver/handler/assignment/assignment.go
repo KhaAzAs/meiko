@@ -59,7 +59,7 @@ func GetSummaryHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Par
 	}
 
 	// get completed assignments have been posted in all courses
-	ca, err := assignment.GetCompleteByUserID(u.ID)
+	ca, err := assignment.GetCompleteIDByUserID(u.ID)
 	if err != nil {
 		template.RenderJSONResponse(w, new(template.Response).
 			SetCode(http.StatusInternalServerError).

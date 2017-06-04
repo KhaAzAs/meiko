@@ -7,6 +7,7 @@ import (
 	"github.com/melodiez14/meiko/src/webserver/handler/assignment"
 	"github.com/melodiez14/meiko/src/webserver/handler/attendance"
 	"github.com/melodiez14/meiko/src/webserver/handler/course"
+	"github.com/melodiez14/meiko/src/webserver/handler/grade"
 	"github.com/melodiez14/meiko/src/webserver/handler/notification"
 )
 
@@ -17,5 +18,6 @@ func loadRouter(r *httprouter.Router) {
 	r.GET("/api/v1/assignment/incomplete", auth.MustAuthorize(assignment.GetIncompleteHandler))
 	r.GET("/api/v1/assignment/summary", auth.MustAuthorize(assignment.GetSummaryHandler))
 	r.GET("/api/v1/attendance/summary", auth.MustAuthorize(attendance.GetSummaryHandler))
+	r.GET("/api/v1/grade/summary", auth.MustAuthorize(grade.GetSummaryHandler))
 	r.GET("/api/v1/notification", auth.MustAuthorize(notification.GetHandler))
 }
